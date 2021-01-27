@@ -72,7 +72,7 @@ var questions = [
 // defining the startQuiz function
 // it sets the timer starting value and calls several other functions to start the game
 function init() {
-    timerCount = 60;
+    timerCount = 75;
     questionCounter = 0;
     availableQuestions = [...questions];
     startTimer();
@@ -109,7 +109,10 @@ function displayQuestion() {
         choice4.textContent = currentQuestion.choice4;
         answer = currentQuestion.answer;
     }   else {
-        gameOver();
+        setTimeout(function() {
+            gameOver();
+        }, 500);
+
     }
 }
 
@@ -122,13 +125,14 @@ function questionClick() {
     } else {
         wrong();
         questionCounter++;
-        timerCount -= 10;
+        timerCount -= 15;
         displayQuestion();
     }
 }
 
 
 function correct() {
+    feedback.setAttribute("style", "color: green");
     feedback.textContent = "Correct!";
     setTimeout(function() {
         feedback.textContent = "";
@@ -136,6 +140,7 @@ function correct() {
 }
 
 function wrong() {
+    feedback.setAttribute("style", "color: red");
     feedback.textContent = "Wrong!";
     setTimeout(function() {
         feedback.textContent = "";
@@ -146,7 +151,6 @@ function wrong() {
 
 function gameOver() {
     window.location.href = "gameover.html";
-
 }
 
 
