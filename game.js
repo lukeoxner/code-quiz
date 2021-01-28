@@ -18,6 +18,7 @@ var feedback = document.querySelector("#feedback");
 
 
 
+
 // * GLOBAL VARIABLE DECLARATIONS
 var timer;
 var timerCount;
@@ -26,6 +27,7 @@ var availableQuestions = [];
 var questionCounter;
 var userChoice;
 var answer;
+var lastScore;
 
 // Declaring questions variable in global memory.
 // Its value is an array of objects whose key value pairs are the question, choices, and correct answer for each quiz problem
@@ -153,10 +155,20 @@ function wrong() {
 }
 
 
-
 function gameOver() {
+    passScore();
     window.location.href = "gameover.html";
 }
+
+// declare function that will save user score to local memory
+function passScore() {
+    lastScore = timerCount;
+
+    localStorage.setItem("lastScore", lastScore);
+
+}
+
+
 
 
 // this function fires when the page is loaded to get the party started!
@@ -183,3 +195,7 @@ choice4.addEventListener("click", function() {
     userChoice = choice4.textContent;
     questionClick();
 });
+
+
+
+

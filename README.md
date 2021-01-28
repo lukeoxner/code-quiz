@@ -6,7 +6,7 @@
 
 This is my fourth homework assignment for the University of Denver Web Development Boot Camp! I'm fairly proud of this one - it's the first interactive program I have built fully from scratch using HTML, CSS, and JavaScript!
 This project is a multiple choice quiz application for a user to play. The user's goal is to answer all questions correctly in as little time as possible. Their score is simply the time remaining when they complete the game (the higher the number, the better.) The game provides immediate user feedback when a question is selected (correct or incorrect) and also gives them the option to save their high score in local memory to compare against other users.
-So go ahead and give it a shot! What's your high score? ;)
+So go ahead and give it a shot! What's your high score?
 
 ## Deployment
 

@@ -12,3 +12,15 @@
 	font-size: 30px;
 	font-weight: bold;
 }
+
+#game-over-text {
+	font-size: 20px;
+}
+
+#initials {
+	font-size: 24px;
+}
+
+#score {
+	font-size: 24px;
+}
