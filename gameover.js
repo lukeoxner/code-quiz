@@ -1,11 +1,26 @@
 // capture references to DOM elements
-var initials = document.querySelector("#initials");
+var initialsEl = document.querySelector("#initials");
+
 var saveScoreBtn = document.querySelector("#save-score");
+
+var highScores = JSON.parse(localStorage.getItem('highScores') || '[]');
+
+console.log(highScores)
 
 
 // declare function to save user initials to local storage
 function saveScore() {
-    localStorage.setItem("initials", initials.value);
+    var userScore = localStorage.getItem("lastScore");
+    var userInitials = document.querySelector("#initials").value;
+
+    var score = {
+        initials: userInitials,
+        score: userScore
+    };
+
+    highScores.push(score);
+
+    localStorage.setItem("highScores", JSON.stringify(highScores));
 }
 
 

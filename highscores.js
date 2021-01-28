@@ -2,6 +2,10 @@
 var playAgainBtn = document.querySelector("#play-again");
 var clearScoresBtn = document.querySelector("#clear-scores");
 
+var highScores = JSON.parse(localStorage.getItem('highScores') || '[]');
+
+var scoresList = document.querySelector("#scores-list");
+
 // var initials = document.querySelector("initials");
 // var score = document.querySelector("score");
 
@@ -14,11 +18,12 @@ function init() {
 
 function displayScores() {
 
-    var userInitials = localStorage.getItem("initials");
-    var userScore = localStorage.getItem("lastScore");
+   scoresList.innerHTML = highScores.map(score => {
 
-    document.getElementById("initials").textContent = userInitials;
-    document.getElementById("score").textContent = userScore;
+        return `<li class="high-score">${score.initials}-${score.score}</li>`;
+
+   })
+   .join("");
 
 
 }
@@ -26,15 +31,10 @@ function displayScores() {
 
 
 
-
-
-
-
 // declare function that will clear user scores from local memory
 function clearScores() {
     localStorage.clear();
-    document.getElementById("initials").textContent = "";
-    document.getElementById("score").textContent = "";
+    window.location.href = "highscores.html";
 }
 
 
