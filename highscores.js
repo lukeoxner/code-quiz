@@ -10,25 +10,19 @@ var scoresList = document.querySelector("#scores-list");
 // var score = document.querySelector("score");
 
 
-
+// declaring init function which simply calls the displayScores function
 function init() {
     displayScores();
 }
 
-
+// declare displayScores function that will enable user scores to be displayed
 function displayScores() {
-
+    // output all the user scores as list items
    scoresList.innerHTML = highScores.map(score => {
-
         return `<li class="high-score">${score.initials}-${score.score}</li>`;
-
    })
    .join("");
-
-
 }
-
-
 
 
 // declare function that will clear user scores from local memory
@@ -38,10 +32,7 @@ function clearScores() {
 }
 
 
-
-
-
-
+// call init function to kick things off
 init();
 
 // event listener for play again button
@@ -51,6 +42,6 @@ playAgainBtn.addEventListener("click", function() {
 
 // add event listener for clear scores button
 clearScoresBtn.addEventListener("click", function() {
-
+    // call function to clear all user initials and scores
     clearScores();
 })

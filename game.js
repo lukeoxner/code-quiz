@@ -87,7 +87,7 @@ function init() {
 }
 
 
-// declaring function startTimer
+// declaring function startTimer to enable time remaining functionality
 function startTimer() {
     timer = setInterval(function()  {
         timerCount--;
@@ -103,7 +103,7 @@ function startTimer() {
 }
 
 
-
+// declare function that displays the next question and choices, or ends game if no questions left
 function displayQuestion() {
     if (questionCounter < questions.length) {
         currentQuestion = availableQuestions[questionCounter];
@@ -123,7 +123,8 @@ function displayQuestion() {
     }
 }
 
-
+// declare questionClick function
+// compares user choice to correct answer to determine if they answered correctly
 function questionClick() {
     if (userChoice === answer) {
         correct();
@@ -137,24 +138,27 @@ function questionClick() {
     }
 }
 
-
+// declare function that enables user feedback when they answer correctly
 function correct() {
     feedback.setAttribute("style", "color: green");
     feedback.textContent = "Correct!";
+    // use setTimeout to make the feedback message disappear after 2 seconds
     setTimeout(function() {
         feedback.textContent = "";
     }, 2000);
 }
 
+// declare function that enables user feedback when they answer incorrectly
 function wrong() {
     feedback.setAttribute("style", "color: red");
     feedback.textContent = "Wrong!";
+    // use setTimeout to make the feedback message disappear after 2 seconds
     setTimeout(function() {
         feedback.textContent = "";
     }, 2000);
 }
 
-
+// declare function gameOver which navigates to the 'game over' page and calls passScore function
 function gameOver() {
     passScore();
     window.location.href = "gameover.html";
@@ -162,19 +166,20 @@ function gameOver() {
 
 // declare function that will save user score to local memory
 function passScore() {
+    // uses time remaining to determine user score
     lastScore = timerCount;
-
+    // saves score to local memory
     localStorage.setItem("lastScore", lastScore);
 
 }
-
-
 
 
 // this function fires when the page is loaded to get the party started!
 init();
 
 // * Event Listeners
+// The following 4 event listeners are used for each of the four answer choices
+// Each one sets the user's choice to be equal to its content and calls the questionClick function
 
 choice1.addEventListener("click", function() {
     userChoice = choice1.textContent;
