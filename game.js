@@ -1,17 +1,20 @@
 
 // * CAPTURING DOM REFERENCES via DOM QUERIES
+
 // timer
 var timerEl = document.querySelector("#timer");
+
 // questions
 var questionEl = document.querySelector("#question");
+
 // choices
 var choice1 = document.querySelector("#choice-1");
 var choice2 = document.querySelector("#choice-2");
 var choice3 = document.querySelector("#choice-3");
 var choice4 = document.querySelector("#choice-4");
+
 // feedback text area
 var feedback = document.querySelector("#feedback");
-// game over
 
 
 
@@ -24,6 +27,8 @@ var questionCounter;
 var userChoice;
 var answer;
 
+// Declaring questions variable in global memory.
+// Its value is an array of objects whose key value pairs are the question, choices, and correct answer for each quiz problem
 var questions = [
     {
         question: "Which programming language is responsible for the styling of HTML elements?",
@@ -69,7 +74,7 @@ var questions = [
 
 // * FUNCTIONS
 
-// defining the startQuiz function
+// defining the init function
 // it sets the timer starting value and calls several other functions to start the game
 function init() {
     timerCount = 75;
